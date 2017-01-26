@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <!-- ng-app Define o nome do aplicativo (pra se comunicar com o app.js (tem que ser o mesmo nome)) -->
+    <body ng-app="starwars" >
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="app.js"></script>
+        <!-- nome do Controller igula no app.js-->
+        <div ng-controller="FormCtrl">
+          <h2>Angularjs + API starwars</h2>
+          <hr>
+          <!--ng-model define o "nome" do tempo para acessar com angular -->
+          <!-- ng-keypress = quando uma tecla for pressionada pega o $event e manda pra a funcao keydown-->
+           <input type="text" ng-model="value" placeholder="Digite o personagem" ng-keypress="keydown($event)">
+
+           <!--ng-click = quando clicar chama a funcao submit()-->
+           <button ng-click="submit()">Buscar</button>
+           <!--unsando a variavel visivel no ng-show (quando true =visivel; false = oculto) -->
+           <div ng-show="visivel">
+           <h2>{{star.name}}</h2>
+           <p>Altura: {{star.height}}</p>
+           <p>Cor do cabelo: {{star.hair_color}}</p>
+           <p>Cor da pele: {{star.skin_color}}</p>
+           <p>Cor dos olhos: {{star.eye_color}}</p>
+           <p>Ano de nascimento: {{star.birth_year}}</p>
+           <p>Gênero: {{star.gender}}</p>
+         </div>
+        </div>
+    </body>
+</html>
